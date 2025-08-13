@@ -1,0 +1,25 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<div class="container my-5 text-center">
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <h2 class="top_header">ShaFt</h2>
+      <p class="top-content mt-5">
+        ShaFtへようこそ!<br>
+        ここではグループで計画を立てたり、<br>
+        「やること」「やりたいこと」を<br>
+        共有しましょう!
+      </p>
+    </div>
+  </div>
+</div>
+<div class="btn-wrapper col-10 mx-auto">
+  <div class="row">
+    <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3" %>
+  </div>
+  <div class="row">
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block" %>
+  </div>
+</div>

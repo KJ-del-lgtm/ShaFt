@@ -1,0 +1,25 @@
+<div class="container fluid">
+  <div class="cork-board">
+    <div class="show-header">
+      <h1>TODO一覧</h1>
+    </div>
+    <div class="show-new-post">
+      <%= link_to new_post_path do %>
+      <h4 class="show-new-post-text">新規投稿<h4>
+      <% end %>
+    </div>
+    <div class="memo-grid mt-5">
+     <% @posts.each do |post| %>
+      <div class="col">
+        <div class="memo-body h-100 pt-5">
+          <div class="card-body">
+            <h6 class="card-subtitle"><%= post.user.name %></h6>
+            <p class="card-text pt-4"><%= post.content %></p>
+            <%= link_to "詳細を見る", post_path(post), class: "btn btn-sm btn-link ps-0" %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+ </div>
+</div>

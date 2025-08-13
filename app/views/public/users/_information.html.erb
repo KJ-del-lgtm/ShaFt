@@ -1,0 +1,14 @@
+<div class="information_box">
+    <div class="name_box">
+      <span></span>
+        <p><%= image_tag user.get_profile_image,size:"100x100" %></p>
+        <p class="text-danger">ユーザーネーム</p>
+        <h5 class="card-title"><%= user.name %></h5>
+    </div>
+    <div class="name_box">
+      <span></span>
+      <p class="text-danger">紹介文</p>
+      <h5 class="card-body"><%= user.introduction %></h5>
+      <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: "btn btn-outline-primary btn-sm" %>
+    </div>
+</div>

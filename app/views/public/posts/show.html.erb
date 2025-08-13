@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h2>投稿詳細</h2>
+  <div class="memo-show p-4">
+    <div class="show-body mb-4">
+      <h4 class="title-head text-danger">ユーザー名</h4>
+      <h5 class="card-title"><%= @post.user.name %></h5>
+    </div>
+    <div class="show-body bg-white p-3 rounted" style="opacity: 60%;">
+      <h6 class="body-header text-danger">内容</h6>
+      <p class="card-text"><%= @post.content %></p>
+    </div>
+  </div>
+
+  <div class="d-flex flex-column mt-5">
+        <%= link_to posts_path, class:"btn-custom d-flex align-items-center justify-content-center" do  %>
+        <i class="fa-solid fa-file fa-2x my-2"></i>一覧に戻る
+        <% end %>
+        <%= link_to edit_post_path, class:"btn-custom d-flex align-items-center justify-content-center" do %>
+        <i class="fa-solid fa-file-pen fa-2x my-2"></i>編集
+        <% end %>
+        <%= link_to @post, method: :delete, data: { confirm: "削除しますか？" }, class:"btn-custom d-flex align-items-center justify-content-center" do %>
+        <i class="fa-solid fa-trash fa-2x me-2 my-2"></i>削除
+        <% end %>
+  </div>
+</div>
