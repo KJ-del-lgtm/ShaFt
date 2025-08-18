@@ -9,7 +9,6 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = Post.all
-    @post = Post.find(params[:id])
   end
   
   def edit
