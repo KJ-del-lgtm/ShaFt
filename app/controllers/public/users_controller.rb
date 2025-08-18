@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   before_action :authenticate_user!
   
   def index
@@ -17,8 +18,14 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      flash[:notice] = "ユーザー更新しました!"
+      redirect_to user_path(@user)
+    else
+      flash[:notice] = "ユーザー更新失敗しました"
+      render :edit
+    end
+    
   end
 
   def unsubscribe
@@ -34,5 +41,12 @@ class Public::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image, :is_active)
+  end
+
+  def is_matching_login_user
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to user_path(current_user)
+    end
   end
 end
