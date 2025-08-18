@@ -15,7 +15,7 @@
  */
 
   main{
-  background-image: url('/assets/background.png');
+  background-image: image-url("background.png");
   background-size: cover;
   background-position: center;
   min-height: 100vh;  
@@ -63,7 +63,24 @@
   box-shadow: -1px 1px 1px rgb(0 0 0 / 5%);
   content: '';
   }
+/* トップページ */
+.about-box{
+  max-width: 400px;
+  margin: 0 auto;
+  border: 2px solid #ffff49;
+  border-radius: 3px;
+  text-align: center;
+}
 
+.about-box span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5em 0;
+  background-color: #92ca2a;
+  color: #fff;
+  font-weight: 600;
+}
 /* ユーザーページ */
   .information_box{
     width: 300px;
@@ -125,7 +142,7 @@
   }
 /* 新規投稿 */
   .memo-input {
-    background-image: url('/assets/memo.png');
+    background-image: image-url("memo.png");
     background-size: cover;
     width: 80%;
     height: 80vh;
@@ -158,7 +175,7 @@
   }
   /* 投稿一覧 */
   .cork-board{
-  background-image: url('/assets/board.png');
+  background-image: image-url("board.png");
   background-size: cover;
   background-position: center;
   height: 900px;
@@ -176,7 +193,7 @@
   }
 
   .show-new-post{
-    background-image: url('/assets/memo.png');
+    background-image: image-url("memo.png");
     background-size: cover;
     height: 160px;
     width: 220px;
@@ -202,7 +219,7 @@
   }
 
   .memo-body{
-    background-image: url('/assets/memo.png');
+    background-image: image-url("memo.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -210,7 +227,7 @@
   }
 /* 投稿詳細 */
   .memo-show{
-    background-image: url('/assets/memo.png');
+    background-image: image-url("memo.png");
     background-size: cover;
     background-position: center;
     width: 500px;
