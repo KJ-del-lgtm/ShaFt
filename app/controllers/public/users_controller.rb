@@ -11,6 +11,7 @@ class Public::UsersController < ApplicationController
     @posts = Post.all
   end
   
+  
   def edit
     @user = User.find(params[:id])
   end
