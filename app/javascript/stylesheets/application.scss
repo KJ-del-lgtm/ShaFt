@@ -209,10 +209,10 @@ main{
     .memo-body{
       background-image: url("../images/memo.png");
       background-size: cover;
-      background-repeat: no-repeat;
       background-position: center;
       width: 240px;
       height: 200px;
+      text-align: center;
     }
   /* 投稿詳細 */
     .memo-show{
