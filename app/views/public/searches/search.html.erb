@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <h2>検索結果</h2>
+
+  <% if @records.present? %>
+    <% if @model == "user" %>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>名前</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @records.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <% elsif @model == "post" %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>本文</th>
+            <th>投稿者</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @records.each do |post| %>
+            <tr>
+              <td><%= post.content %></td>
+              <td><%= post.user.name if post.user %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
+  <% else %>
+    <p>検索結果が見つかりませんでした。</p>
+  <% end %>
+</div>

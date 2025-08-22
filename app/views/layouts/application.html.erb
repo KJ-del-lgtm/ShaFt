@@ -7,7 +7,6 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/0d70722266.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,6 +15,10 @@
     <div class="d-flex flex-column min-vh-100">
       <%= render 'layouts/header' %>
       <main>
+        <%= render 'layouts/flash' %>
+        <div class="d-flex justify-content-center mb-2">
+          <%= render "public/searches/form" %>
+        </div>
        <%= yield %>
       </main>
        <%= render 'layouts/footer' %>

@@ -2,27 +2,5 @@
   <div class="row">
       <%= render 'information', user: current_user %>
   </div>
-
-    <!-- 右側：ユーザー一覧 -->
-  <div class="table" style="flex-grow: 1; overflow-y: auto; border: 1px solid #ddd; padding: 1rem;">
-    <h2>ユーザー一覧</h2>
-    <table class="table table-striped mb-0">
-      <thead>
-        <tr>
-          <th>image</th>
-          <th>ユーザーネーム</th>
-          <th>詳細</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
-            <td><%= user.name %></td>
-            <td><%= link_to 'Show', user, class: "btn btn-sm btn-primary" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <%= render 'list', users: @users %>
 </div>

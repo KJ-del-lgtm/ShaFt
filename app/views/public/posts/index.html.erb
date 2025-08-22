@@ -11,7 +11,7 @@
     <div class="memo-grid mt-5">
      <% @posts.each do |post| %>
       <div class="col">
-        <div class="memo-body h-100 pt-5">
+        <div class="memo-body">
           <div class="card-body">
             <h6 class="card-subtitle"><%= post.user.name %></h6>
             <p class="card-text pt-4"><%= post.content %></p>

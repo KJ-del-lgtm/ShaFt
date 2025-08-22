@@ -1,4 +1,6 @@
 @use "~bootstrap/scss/bootstrap"; 
+@use "./simple_calendar.scss";
+
 
 main{
     background-image: url("../images/background.png");
@@ -68,17 +70,17 @@ main{
     font-weight: 600;
   }
   /* ユーザーページ */
-    .information_box{
-      width: 300px;
-      margin: 0 auto;
-      padding: 1em 1.5em;
-      background-image: linear-gradient(transparent calc(100% - 1px), #e6edf3 50%, #e6edf3), linear-gradient(90deg, transparent calc(100% - 1px), #e6edf3 50%, #e6edf3);
-      background-size: 15px 15px;
-      background-repeat: repeat;
-      background-color: #ffffff;
-      color: #212121;
-      border-radius: 10px;
-    }
+  .information_box{
+    width: 300px;
+    margin: 0 auto;
+    padding: 1em 1.5em;
+    background-image: linear-gradient(transparent calc(100% - 1px), #e6edf3 50%, #e6edf3), linear-gradient(90deg, transparent calc(100% - 1px), #e6edf3 50%, #e6edf3);
+    background-size: 15px 15px;
+    background-repeat: repeat;
+    background-color: #ffffff;
+    color: #212121;
+    border-radius: 10px;
+  }
   
     .name_box{
       position: relative;
@@ -209,7 +211,8 @@ main{
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      min-width: 240px;
+      width: 240px;
+      height: 200px;
     }
   /* 投稿詳細 */
     .memo-show{
@@ -243,3 +246,4 @@ main{
       width: 100%;
       background-color: #d0d0d0;
     }
+    

@@ -1,0 +1,24 @@
+<h2>コメント一覧</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>投稿内容</th>
+      <th>ユーザー</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.id %></td>
+        <td><%= comment.content %></td>
+        <td><%= comment.user.name if comment.user.present? %></td>
+        <td>
+          <%= link_to "削除", admin_comment_path(comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class:"btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

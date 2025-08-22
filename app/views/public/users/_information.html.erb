@@ -4,13 +4,23 @@
         <p><%= image_tag user.get_profile_image,size:"100x100" %></p>
         <p class="text-danger">ユーザーネーム</p>
         <h5 class="card-title"><%= user.name %></h5>
+        
     </div>
     <div class="name_box">
       <span></span>
       <p class="text-danger">紹介文</p>
       <h5 class="card-body"><%= user.introduction %></h5>
-      <% if user.id == current_user.id %>
+      <% if current_user != user %>
+        <%= render 'public/relationships/form', user: user, options: {class: ""}%>
+      <% else %>
         <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: "btn btn-outline-primary btn-sm" %>
       <% end %>
+    </div>
+    <div class="name_box">
+      <h4>フォロー</h4>
+      <%= link_to user.followings.count, user_followings_path(user)%> 人
+
+      <h4>フォロワー</h4>
+      <%= link_to user.followers.count, user_followers_path(user) %> 人
     </div>
 </div>
