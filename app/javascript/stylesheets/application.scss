@@ -51,13 +51,14 @@ main{
     box-shadow: -1px 1px 1px rgb(0 0 0 / 5%);
     content: '';
     }
-  /* トップページ */
+  /* アバウトページ */
   .about-box{
     max-width: 400px;
     margin: 0 auto;
     border: 2px solid #ffff49;
     border-radius: 3px;
     text-align: center;
+    background-color: #fff;
   }
   
   .about-box span{

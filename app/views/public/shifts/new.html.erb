@@ -1,0 +1,26 @@
+<div class="container bg-light rounded py-3 mt-4">
+  <h2 class="mb-4 text-center">シフトを追加</h2>
+  <%= form_with model: [@group, @shift], local: false do |f| %>
+  
+    <div class="mb-3">
+      <%= f.label :user_id, "メンバー", class: "form-label fw-bold" %>
+      <%= f.collection_select :user_id, @group_members, :id, :name, { prompt: "メンバーを選択" }, { class: "form-select" } %>
+    </div>
+  
+    <div class="mb-3">
+      <%= f.label :start_time, "開始時間", class: "form-label fw-bold" %>
+      <div class="d-flex flex-wrap gap-2">
+        <%= f.datetime_select :start_time, { default: @shift.start_time || Time.current }, { class: "form-select d-inline w-auto me-1" } %>
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <%= f.label :end_time, "終了時間", class: "form-label fw-bold" %>
+      <div class="d-flex flex-wrap gap-2">
+        <%= f.datetime_select :end_time, { default: @shift.end_time || Time.current + 1.hour }, { class: "form-select d-inline w-auto me-1" } %>
+      </div>
+    </div>
+    <%= link_to "戻る", group_path(@group), class: "btn btn-secondary flex-fill" %>
+    <%= f.submit "シフトを登録", class: "btn btn-primary" %>
+  <% end %>
+</div>

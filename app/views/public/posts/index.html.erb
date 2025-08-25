@@ -11,12 +11,10 @@
     <div class="memo-grid mt-5">
      <% @posts.each do |post| %>
       <div class="col">
-        <div class="memo-body">
-          <div class="card-body">
-            <h6 class="card-subtitle"><%= post.user.name %></h6>
-            <p class="card-text pt-4"><%= post.content %></p>
-            <%= link_to "詳細を見る", post_path(post), class: "btn btn-sm btn-link ps-0" %>
-          </div>
+        <div class="memo-body p-4">
+          <h6 class="text-danger"><%= post.user.name %></h6>
+          <p class="text pt-4"><%= post.content %></p>
+          <%= link_to "詳細を見る", post_path(post), class: "btn btn-sm btn-link ps-0" %>
         </div>
       </div>
       <% end %>

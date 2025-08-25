@@ -1,0 +1,18 @@
+<h2 class="mb-4 text-center">参加しているグループ</h2>
+
+<div class="row g-3">
+  <% @groups.each do |group| %>
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title my-3"><%= group.name %></h5>
+          <%= link_to "詳細を見る", group_path(group), class: "btn btn-outline-primary btn-sm mt-2" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="text-center mt-4">
+  <%= link_to "新しいグループを作る", new_group_path, class: "btn btn-success btn-lg" %>
+</div>

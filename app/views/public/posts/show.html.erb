@@ -56,7 +56,7 @@
         <% end %>
 
         <h5 class="mt-4">コメント投稿</h5>
-        <%= form_with(model: [@post, @comment], local: true) do |f| %>
+        <%= form_with(model: [@post, @comment], local: false) do |f| %>
           <div class="mb-2">
             <%= f.text_area :content, rows: 3, class: "form-control", placeholder: "コメントを入力..." %>
           </div>

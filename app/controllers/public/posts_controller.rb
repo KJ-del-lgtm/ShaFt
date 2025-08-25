@@ -1,6 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :is_matching_login_user, only:[:edit, :destroy]
+  before_action :ensure_guest_user, only:[:new, :edit]
   
   def show
     @post = Post.find(params[:id])
@@ -60,4 +61,10 @@ class Public::PostsController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
+
+  def ensure_guest_user
+    if current_user.email == "guest@example.com"
+      redirect_to user_path(current_user) , notice: "ゲストユーザーはご利用できません。"
+    end
+  end  
 end

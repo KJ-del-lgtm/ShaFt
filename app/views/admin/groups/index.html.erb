@@ -1,0 +1,22 @@
+<h2>ユーザー一覧</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>部屋主</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.id %></td>
+        <td><%= link_to group.name ,admin_group_path(group)%></td>
+       <td><%= group.owner.name%></td>
+       <td><%= link_to "削除", admin_group_path(group), method: :delete, class:"btn btn-danger", data: { confirm: "削除しますか？" }%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

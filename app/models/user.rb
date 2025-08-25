@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :followings, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_many :group_users, dependent: :destroy
+  has_many :groups, through: :group_users
+  has_many :owned_groups, class_name: "Group", foreign_key: "owner_id", dependent: :destroy
+
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one_attached :profile_image
@@ -48,6 +52,19 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+
+  def matual_following?(other_user)
+    self.following?(other_user) && other_user.following?(self)
+  end
+
+  GUEST_USER_EMAIL = "guest@example.com"
+
+  def self.guest
+    find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
   end
 
 end

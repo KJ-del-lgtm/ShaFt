@@ -1,6 +1,6 @@
 <div class="memo-input">
   <div class="memo-overlay">
-    <%= form_with model: post, local: true do |f| %>
+    <%= form_with model: post, local: false do |f| %>
       <%= f.text_area :content, class:"col",placeholder: "今日のやることを投稿してみましょう...(20文字以内)" %>
         <div class="text-end mt-2">
         <%= f.submit '保存', class: 'btn btn-warning' %>

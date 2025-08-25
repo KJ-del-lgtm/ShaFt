@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     sessions: 'admins/sessions',
     passwords: 'admins/passwords'
   }
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'publics/sessions#guest_sign_in'
+  end
   
   scope module: :public do
     root to: 'homes#top'
@@ -19,6 +23,11 @@ Rails.application.routes.draw do
     end
     resources :posts do
       resources :comments, only:[:create, :destroy] 
+    end
+    resources :groups do
+      resources :group_users, only:[:create]
+      resources :messages, only:[:create, :destroy]
+      resources :shifts, only:[:new, :create, :edit, :update, :destroy]
     end
   end
 
@@ -31,7 +40,9 @@ Rails.application.routes.draw do
       end
     end
     resources :comments ,only:[:index, :destroy]
+    resources :groups ,only:[:index, :show, :destroy]
   end
+
   
   get '/search', to: "public/searches#search"
   get 'homes/about', to: "public/homes#about", as: 'about'
