@@ -9,7 +9,7 @@
     </div>
 
     <div class="mb-3">
-      <%= f.label :user_ids, "招待するユーザー（相互フォローのみ）", class: "form-label fw-bold" %>
+      <%= f.label :user_ids, "招待するユーザー（相互フォローのみ選択できます）", class: "form-label fw-bold" %>
       <% current_user.followings.each do |user| %>
         <% if current_user.matual_following?(user) %>
           <div class="form-check">
