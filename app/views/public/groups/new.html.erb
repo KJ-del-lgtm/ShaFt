@@ -1,7 +1,7 @@
 <h2 class="mb-4 text-center">グループ作成</h2>
 
 <div class="card shadow-sm p-4 mx-auto" style="max-width: 600px;">
-  <%= form_with model: @group, local: true do |f| %>
+  <%= form_with model: @group, local: false do |f| %>
     
     <div class="mb-3">
       <%= f.label :name, "グループ名", class: "form-label fw-bold" %>
