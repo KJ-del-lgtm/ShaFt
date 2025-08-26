@@ -1,6 +1,6 @@
 class Public::RelationshipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_guest_user
+  before_action :forbid_guest_action
 
   def create
     user = User.find(params[:user_id])
@@ -26,10 +26,10 @@ class Public::RelationshipsController < ApplicationController
 
   private
 
-  def ensure_guest_user
+  def forbid_guest_action
     @user = User.find(params[:user_id])
-    if @user.email == "guest@example.com"
-      redirect_to user_path(current_user) , notice: "ゲストユーザーはご利用できません。"
+    if current_user.guest?
+      redirect_to root_path, alert: "ゲストユーザーはフォロー機能を利用できません。"
     end
-  end  
+  end
 end

@@ -53,21 +53,23 @@
 
     <div class="mt-4">
       <p class="text-center text-bg-info">グループ情報</p>
-
-      <h4 class="mb-3">メンバー<%= @group.users.count %>人</h4>
-      <div class="overflow-auto" style="max-height: 300px;">
-        <ul class="list-group ">
-          <% @group.users.each do |user| %>
+      <h4 class="mb-3">メンバー <%= @group.users.count + 1 %>人</h4>
+        <div class="overflow-auto" style="max-height: 300px;">
+          <ul class="list-group">
             <li class="list-group-item d-flex align-items-center">
-              <%= image_tag user.get_profile_image, size: "40x40", class: "rounded-circle me-2" %>
-              <%= user.name %>
-              <% if @group.owner == user %>
-                <span class="badge bg-warning ms-auto">オーナー</span>
-              <% end %>
+              <%= image_tag @group.owner.get_profile_image, size: "40x40", class: "rounded-circle me-2" %>
+              <%= @group.owner.name %>
+              <span class="badge bg-warning ms-auto">オーナー</span>
             </li>
-          <% end %>
-        </ul>
-      </div>
+            <% @group.users.each do |user| %>
+              <% next if user == @group.owner %>
+              <li class="list-group-item d-flex align-items-center">
+                <%= image_tag user.get_profile_image, size: "40x40", class: "rounded-circle me-2" %>
+                <%= user.name %>
+              </li>
+            <% end %>
+           </ul>
+        </div>
       <% if @group.owner == current_user %>
         <div class="mt-3 text-center">
           <%= link_to "グループを削除", group_path(@group), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
