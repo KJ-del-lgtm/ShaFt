@@ -9,7 +9,7 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @posts = current_user.posts.order(:due_date)
+    @posts = @user.posts.order(:due_date)
   end
   
   

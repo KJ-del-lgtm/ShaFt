@@ -9,7 +9,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
   end
 
   def new
@@ -23,7 +23,7 @@ class Public::PostsController < ApplicationController
       flash[:notice] = "TODOを作りました!"
       redirect_to post_path(@post)
     else
-      flash[:notice] = "TODOを入れてください"
+      flash[:alert] = "TODOを入れてください"
       render :new 
     end
   end
@@ -47,6 +47,12 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_path(@post.user.id)
+  end
+
+  def complete
+    @post = Post.find(params[:id])
+    @post.update(completed: true)
+    redirect_to @post, notice: "🎉 おめでとう！達成したね！"
   end
 
   private

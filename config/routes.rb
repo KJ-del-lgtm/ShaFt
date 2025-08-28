@@ -22,6 +22,9 @@ Rails.application.routes.draw do
         get "followers" => "relationships#followers", as: "followers"
     end
     resources :posts do
+      member do
+        patch :complete
+      end
       resources :comments, only:[:create, :destroy] 
     end
     resources :groups do
@@ -43,7 +46,6 @@ Rails.application.routes.draw do
     resources :groups ,only:[:index, :show, :destroy]
   end
 
-  
   get '/search', to: "public/searches#search"
   get 'homes/about', to: "public/homes#about", as: 'about'
   get "/user/unsubscribe" => "public/users#unsubscribe", as: 'unsubscribe_user'

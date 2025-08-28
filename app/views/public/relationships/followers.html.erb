@@ -1,7 +1,7 @@
 <h3 class="mb-4 text-center">フォロワーユーザー</h3>
 <div class="container my-4 d-flex" style="gap: 2rem; height: 80vh;">
   <div class="row">
-      <%= render 'public/users/information', user: current_user %>
+      <%= render 'public/users/information', user: @user %>
   </div>
     <% if @users.exists? %>
       <%= render "public/users/list", users: @users %>

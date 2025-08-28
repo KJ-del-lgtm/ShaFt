@@ -31,6 +31,7 @@ class Public::GroupsController < ApplicationController
     end
     redirect_to @group, notice: "グループを作成しました（シフト表も自動生成済み）"
   else
+    flash[:notice] = "グループ名を記入してください"
     render :new
   end
   end

@@ -9,11 +9,11 @@ class Post < ApplicationRecord
     if method == 'perfect'
       Post.where(content: content)
     elsif method == 'forward'
-      Post.where('name LIKE ?', content + '%')
+      Post.where('content LIKE ?', content + '%')
     elsif method == 'backward'
-      Post.where('name LIKE ?', '%' + content)
+      Post.where('content LIKE ?', '%' + content)
     else
-      Post.where('name LIKE ?', '%' + content + '%')
+      Post.where('content LIKE ?', '%' + content + '%')
     end
   end
 end
